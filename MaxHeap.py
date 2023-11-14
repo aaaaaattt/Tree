@@ -44,7 +44,7 @@ def heappop(heap) :
 #허프만 코딩 트리 만들기
 def make_tree(freq):
     heap = [0]
-    for n in freq :
+    for n in freq : #freq리스트의 요소들을 heap 리스트로 옮김
         heappush(heap,n)
 
     for i in range(1, len(freq)) :
