@@ -39,3 +39,20 @@ def heappop(heap) :
     heap[pi] = last                         #맨 마지막 노드를 parent 위치에 복사
     heap.pop()                              #맨 마지막 노드 삭제
     return root                             #저장해 두었던 루트를 반환
+
+
+#허프만 코딩 트리 만들기
+def make_tree(freq):
+    heap = [0]
+    for n in freq :
+        heappush(heap,n)
+
+    for i in range(1, len(freq)) :
+        e1 = heappop(heap)
+        e2 = heappop(heap)
+        heappush(heap, e1 + e2)
+        print("(%d+%d)" %(e1,e2))
+
+label = ['E', 'T', 'N', 'I', 'S']
+freq = [15, 12, 8, 6, 4] #정렬된 배열임
+make_tree(freq)
